@@ -1,0 +1,58 @@
+<div class="container" id="container">
+    <div class="form-container log-in-container ">
+        <div class="emptybody">
+                <img src="/assets/118046-lf20-oahmox5rjson.gif" alt="rGif" width="360">
+                <h3>Wellcome to HRMS</h3>
+        </div>
+
+        <!-- <h3>Verify your credentials and get access</h3>
+                <span>
+                    <h4>to</h4>
+                </span>
+                <p>The Human Resource Management Solution (HRMS) Application to simplifies and automates HR functions,
+                    such as recruitment,
+                    employee management, leave, attendance, separation, and many. </p> -->
+    </div>
+    <div class="overlay-container" >
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h4>Sign-Up <i class="fa-solid fa-user-plus"></i></h4>
+                <form [formGroup]="registerForm" (submit)="onSubmit()">
+
+                    <label>Full Name</label>
+                    <input type="text" formControlName="name" placeholder="Enter Full Name"
+                        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }" class="form-control" />
+                    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                        <div *ngIf="f['name'].errors['required']">*Fullname is required</div>
+
+                    </div>
+                    <label>Mobile Number</label>
+
+                    <input type="text" formControlName="mobile" placeholder="Enter Mobile"
+                        [ngClass]="{ 'is-invalid': submitted && f['mobile'].errors }" class="form-control" />
+                    <div *ngIf="submitted && f['mobile'].errors" class="invalid-feedback">
+                        <div *ngIf="f['mobile'].errors['required']">*Mobile number is required</div>
+                        <div *ngIf="f['mobile'].errors['pattern']">*only number & least 10 numbers</div>
+
+                    </div>
+                    <label>Email Address</label>
+
+                    <input type="email" formControlName="email" placeholder="Enter Email"
+                        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" class="form-control" />
+                    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors['required']">*Email Required</div>
+                        <div *ngIf="f['email'].errors['email']">*Email is invalid</div>
+                    </div>
+                    <label>Password</label>
+
+                    <input type="password" formControlName="password" placeholder="Enter Password"
+                        [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" class="form-control" />
+                    <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                        <div *ngIf="f['password'].errors['required']">*Password required</div>
+                    </div>
+                    <button type="submit">Register</button>
+                    <span style="margin: 40px 0 0 40px;">have already account..? <span routerLink="/login" style="cursor: pointer;color:#24bbeb"><b><i class="fa-solid fa-right-to-bracket"></i> login</b></span> </span>
+                </form>
+            </div>
+        </div>
+    </div>

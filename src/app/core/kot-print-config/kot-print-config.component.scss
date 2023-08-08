@@ -1,0 +1,101 @@
+
+
+
+
+.subhead{
+    color: red;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.threesections{
+    display: flex;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.firstsec{
+    width: 50% !important;
+}
+.sec2{
+    width: 100% !important;
+}
+.sec3{
+    align-items: center;
+    width: fit-content !important;
+}
+.sec3 .lists{
+    margin-top: 10px !important;
+}
+.sec3 .fa-solid{
+    margin-left: auto !important;
+    color: red;
+    font-size: 14px;
+}
+
+.lists{
+    margin-top: 10px;
+    position: relative;
+}
+
+
+.lists p span{
+    border: 1px solid grey;
+    border-left: 0;
+    border-top: 0;
+    padding: 7px 10px;
+    position: relative;
+    right: 10px;
+}
+.lists div span{
+    border: 1px solid grey;
+    border-top: 0;
+    border-left: 0;
+    padding: 4px 10px;
+    position: relative;
+    right: 0px;
+}
+.lists p{
+    border: 1px solid grey;
+    padding: 5px 10px;
+    margin: 0;
+}
+.lists div{
+    border: 1px solid grey;
+    margin: 0;
+    padding: 0;
+}
+.inputbox{
+    height: 30px;
+    margin: 0 10px;
+}
+.save-btn{
+    background: #ff3d91;
+    color: white;
+    height: 30px;
+    font-size: 13px;
+}
+
+
+.modal-footer{
+    position: absolute;
+    bottom: 80px;
+    right: 60px;
+}
+
+.selectall{
+    display: flex;
+    align-items: center;
+}
+.selectall p{
+    margin: 0 0 0 50px;
+}
+.selectall input{
+    margin-right: 5px;
+}
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+<form [formGroup]="catForm" (ngSubmit)="categoryPost()">
+
+
+
+  <p class="subredhead">Category Master</p>
+
+
+  <!-----form-fileds------>
+
+  <div class="box">
+
+    <div class="right d-flex">
+
+
+      <div class="form subfield">
+        <label for="inlineFormSelectPref" >Category Name <span>*</span></label>
+        <input formControlName="categoryName" type="text" id="form9Example1" class="form-control" />
+        <input type="hidden" formControlName="categoryId">
+      </div>
+
+      
+      <div class="form subfield statusarea">
+        <label for="inlineFormSelectPref" > Status <span>*</span></label>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input" formControlName="isActive" type="checkbox" id="flexSwitchCheckChecked" checked
+            style="width: 50px !important;">
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="modal-footer savesec">
+      <button type="reset" class="btn btn-secondary" (click)="resetcatForm()" data-bs-dismiss="modal">Clear</button>
+      <button type="submit" class="btn btn-sucess" style="background: green !important;">Save</button>
+    </div>
+  </div>
+
+  <!-----form-fileds------>
+
+
+</form>
+
+
+<div class="category-page" *ngIf="isCategory===true">
+
+
+ 
+
+  <div class="alldis">
+
+    <div style="display: flex;align-items: center !important;" class="newpart"> 
+      <h3>ALL CATEGORY MASTERS</h3>
+      <div class="search-bar">
+        <form class="d-flex">
+          <input class="form-control me-2" 
+          type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+     <div class="form-check form-switch" style="align-items: center !important;display: flex;">
+       <input class="form-check-input" type="checkbox" (click)="filtredIsActive()" [(ngModel)]="isChecked"
+         id="flexSwitchCheckChecked" checked style="width: 60px !important;margin-right: 5px;height:30px;border-radius: 30px;">
+         <!-- <p class="mt-3">Active/InActive</p> -->
+     </div>
+   
+   </div>
+
+
+  <table class="table table-part">
+    <thead>
+      <tr>
+
+        <th scope="col">S.NO</th>
+        <th scope="col">Category Name</th>
+        <!-- <th scope="col">Category Type</th> -->
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cat of category|search:searchText;let i=index;">
+        <td data-label="S.NO">{{1+i}}</td>
+        <td data-label="Category Name">{{cat.categoryName}}</td>
+        <!-- <td>category Type</td> -->
+        <td data-label="Status">{{cat.isActive}}</td>
+
+
+        <td data-label="Action">
+          <span class="form-check form-switch" style="display: flex !important;">
+              <div>
+                <input class="form-check-input" (click)="StatusUpdate(cat)" type="checkbox" id="flexSwitchCheckChecked"
+                [checked]="cat.isActive"
+                 style="width: 32px !important;height: 15px !important;">
+              </div>
+               <div><i class="fa fa-pencil" (click)="patchCat(cat)"  style="color: red;margin: 0 10px;" ></i></div>
+            </span>
+       </td>
+
+
+      </tr>
+
+    </tbody>
+  </table>
+
+
+</div>
+
+
+<div *ngIf="isCategory===false" style="color: rgb(252, 249, 249);text-align: center;margin: 80px 300px;">
+  <img src="/assets/permission.gif" alt="" width="50%"><br>
+  <h5 style="background-color: rgb(31, 31, 70);">Your not Authorised</h5>
+</div>

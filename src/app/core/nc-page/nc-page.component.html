@@ -1,0 +1,172 @@
+
+
+<form>
+
+  <p class="subredhead">NC Master(Non chargeable)</p>
+
+  <div class="box">
+   
+ 
+    <!-----form-fileds------>
+  
+  
+    <div class="fields d-flex">
+  
+      <div class="right">
+       
+      
+              <div class="subfield">
+                  
+                  <label  for="inlineFormSelectPref">Discount Value</label>
+                  <select class="select">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                  </select>
+              </div>
+      
+      
+            
+      
+              
+              <div class="subfield">
+                  <label for="inlineFormSelectPref">Customer</label>
+                  <div class="input-group">
+                    <div class="input-group-text" style="background: #21263C;color: white;">₹</div>
+                    <input type="text" class="form-control currencyinput" id="inlineFormInputGroupUsername">
+                  </div>
+              </div>
+      
+      
+              <div class="form subfield">
+                  <label for="inlineFormSelectPref">Contact</label>
+                  <input type="number" id="form9Example1" class="form-control" />
+              </div>
+      
+      
+              <div class="subfield">
+                  <label for="inlineFormSelectPref">Resion</label>
+                  <select class="select">
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                    <option value="6">Six</option>
+                    <option value="7">Seven</option>
+                    <option value="8">Eight</option>
+                  </select>
+              </div>
+         
+       </div>
+      
+      
+      <div class="left">
+      
+          <div class="form subfield">
+              <label for="inlineFormSelectPref">Given By</label>
+              <input type="text" id="form9Example1" class="form-control" />
+          </div>
+      
+          <div class="form subfield">
+              <label class="form-label" for="textAreaExample">Remarks</label>
+              <textarea class="form-control" id="textAreaExample" rows="3"></textarea>
+          </div>
+  
+          <div class="modal-footer savesec">
+            <button type="reset" class="btn btn-secondary"  data-bs-dismiss="modal">Clear</button>
+            <button type="submit" class="btn btn-sucess text-white" style="background: green !important;">Save</button>
+          </div>
+      
+      </div>
+      
+      </div>
+  
+     
+      
+    <!-----form-fileds------>
+  </div>
+  
+  
+  
+  </form>
+  
+  
+  <div *ngIf="isNC===false" style="color: rgb(252, 249, 249);text-align: center;margin: 80px 300px;">
+    <img src="/assets/permission.gif" alt="" width="50%"><br>
+    <h5 style="background-color: rgb(31, 31, 70);">Your not Authorised</h5>
+    </div>
+  
+  <div class="nc-page" *ngIf="isNC===true" >
+  
+  
+  
+    <div class="search-bar">
+      <form class="d-flex">
+        <input class="form-control me-2" 
+        type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+    </div>
+  
+    <div class="alldis">
+  
+      <div> <h3>ALL NC MASTERS</h3></div>
+       <div class="form-check form-switch" style="align-items: center !important;display: flex;">
+         <input class="form-check-input" type="checkbox" 
+           id="flexSwitchCheckChecked" checked style="width: 60px !important;margin-right: 5px;height:30px;border-radius: 30px;">
+           <p class="mt-3">Active/InActive</p>
+       </div>
+     
+     </div>
+  
+    
+    <table class="table table-part">
+        <thead>
+          <tr>
+            <th scope="col">S.NO</th>
+            <th scope="col">Discount Value</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Given By</th>
+            <th scope="col">Resion</th>
+            <th scope="col">Remarks</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="S.NO">1</td>
+            <td data-label="Discount Value">200</td>
+            <td data-label="Customer">XYZ</td>
+            <td data-label="Contact">999999999</td>
+            <td data-label="Given By">Admin</td>
+            <td data-label="Resion">costal</td>
+            <td data-label="Remarks">loremipsum</td>
+          
+  
+            <td data-label="Action">
+              <span class="form-check form-switch" style="display: flex !important;">
+                  <div>
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked style="width: 32px !important;height: 15px !important;">
+                  </div>
+                   <div><i class="fa fa-pencil"   style="color: red;margin: 0 10px;" ></i></div>
+                </span>
+           </td>
+  
+  
+  
+          </tr>
+       
+        </tbody>
+    </table>
+  
+    
+  </div>
+  
+   

@@ -1,0 +1,227 @@
+
+<div *ngIf="isDashboard===false" style="color: rgb(252, 249, 249);text-align: center;margin: 80px 300px;">
+    <img src="/assets/permission.gif" alt="" width="50%"><br>
+    <h5 style="background-color: rgb(31, 31, 70);">Your not Authorised</h5>
+    </div>
+
+
+
+
+
+<div *ngIf="isDashboard===true">
+   
+  <div class="smallnav mt-2">
+    <mat-form-field appearance="outline" class="datepick">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+     
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker >
+      </mat-form-field>
+  </div>
+
+
+<div class="dashboardflex">
+
+
+
+<div class="allboxes-container">
+
+  <!------first 6 boxes----->
+    <div class="box">
+
+
+    <div class="box1">
+        <p class="totalsales">Total Sales</p>
+       <div class="subrow">
+        <p class="price">₹9312.00</p>
+        <p class="invoices" style="background: rgb(232, 12, 129);">No.of Invoices : 10</p>
+       </div>
+    </div>
+    
+
+    <div class="box1">
+        <p class="totalsales">Total Tax</p>
+       <div class="subrow">
+        <p class="price">₹0.00</p>
+        <p class="invoices"  style="background: rgb(225, 171, 10);">No.of Invoices : 0</p>
+       </div>
+    </div>
+
+    <div class="box1">
+        <p class="totalsales">Total Discount</p>
+       <div class="subrow">
+        <p class="price">₹0.00</p>
+        <p class="invoices"  style="background: rgb(46, 229, 18);">No.of Invoices : 0</p>
+       </div>
+    </div>
+
+
+
+    <div class="box1">
+        <p class="totalsales">Total Expense</p>
+       <div class="subrow">
+        <p class="price" style="color: red;">₹7510.00</p>
+        <p class="invoices"  style="background: rgb(117, 182, 19);"> Expenses : 5</p>
+       </div>
+    </div>
+
+
+
+    <div class="box1">
+        <p class="totalsales">Total NC</p>
+       <div class="subrow">
+        <p class="price">₹0.00</p>
+        <p class="invoices"  style="background: rgb(65, 106, 220);">No.of Invoices : 5</p>
+       </div>
+    </div>
+
+    <div class="box1">
+        <p class="totalsales">Total Customers</p>
+       <div class="subrow">
+        <p class="price">6</p>
+        <p class="invoices"  style="background: rgb(220, 101, 194);">Repeat Customers : 0</p>
+       </div>
+    </div>
+
+   
+
+    </div>
+  <!------first 6 boxes----->
+
+  <!------second 6 boxes----->
+     <div class="box">
+
+
+    <div class="box1">
+        <p class="totalsales">Running Orders</p>
+       <div class="subrow">
+        <p class="price">₹9312.00</p>
+        <p class="invoices" style="background: rgb(232, 12, 129);">No.of Orders : 10</p>
+       </div>
+    </div>
+    
+
+    <div class="box1">
+        <p class="totalsales">Order Cancelled</p>
+       <div class="subrow">
+        <p class="price" style="color: red;">₹0.00</p>
+        <p class="invoices"  style="background: rgb(225, 171, 10);">No.of Cancelled Orders : 0</p>
+       </div>
+    </div>
+
+
+    <div class="box1">
+        <p class="totalsales">Order Void</p>
+       <div class="subrow">
+        <p class="price" style="color: red;">₹0.00</p>
+        <p class="invoices" style="background: rgb(46, 229, 18);">No.of Invoices : 0</p>
+       </div>
+    </div>
+
+
+    <div class="box1">
+        <p class="totalsales">Pending Orders</p>
+       <div class="subrow">
+        <p class="price" style="color: red;">₹0.00</p>
+        <p class="invoices" style="background: rgb(117, 182, 19);">No.of Cancelled Orders : 0</p>
+       </div>
+    </div>
+
+
+    <div class="box1">
+        <p class="totalsales">Petty Cash Expenses</p>
+       <div class="subrow">
+        <p class="price" style="color: red;">₹0.00</p>
+        <p class="invoices"  style="background: rgb(65, 106, 220);">No.of Transactions : 5</p>
+       </div>
+    </div>
+
+
+    <div class="box1">
+        <p class="totalsales">Credit Bills Value</p>
+       <div class="subrow">
+        <p class="price" style="color: red;">₹0.00</p>
+       
+       </div>
+    </div>
+
+     </div>
+  <!------second 6 boxes----->
+
+</div>
+   
+
+<div class="summury">
+
+    <div class="sumbx1">
+        <p class="payment">Payment Summury</p>
+       
+       <div class="subdivision">
+        <div>
+            <p>Cash : <span>5000</span></p>
+            <p>Card : <span>2000</span></p>
+        </div>
+       
+        <div>
+            <p>UPI : <span>2000</span></p>
+            <p>Credit : <span>4000</span></p>
+        </div>
+       </div>
+
+    </div>
+
+    <div class="sumbx1">
+        <p class="payment">Transaction Sales</p>
+
+      <div class="subdivision">
+        <div>
+            <p>Dine In : <span>5000</span></p>
+            <p>Take Away : <span>2000</span></p>
+           </div>
+           <div>
+            <p>Delivery : <span>3000</span></p>
+            <p>Online : <span>3000</span></p>
+           </div>
+      </div>
+    </div>
+
+    <div class="sumbx1">
+        <p class="payment">Category Wise Sales</p>
+      <div class="subdivision">
+        <div>
+            <p>Food : <span>5000</span></p>
+            <p>Beverage : <span>2000</span></p>
+           </div>
+          <div>
+            <p>Liquor : <span>3000</span></p>
+            <p>Others : <span>4000</span></p>
+          </div>
+      </div>
+    </div>
+
+    <div class="sumbx1">
+        <p class="payment">Cashier Wise Sales</p>
+
+      <div class="subdivision">
+        <div>
+            <p>Ravi : <span>5000</span></p>
+            <p>Suresh : <span>2000</span></p>
+           </div>
+           <div>
+            <p>Rakesh : <span>3000</span></p>
+            <p>Madhu : <span>4000</span></p>
+           </div>
+      </div>
+      
+    </div>
+
+</div> 
+
+
+</div>
+
+</div>

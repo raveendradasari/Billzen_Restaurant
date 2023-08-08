@@ -1,0 +1,49 @@
+
+
+
+
+<!-- <div *ngIf="isSeeting===false" style="color: rgb(252, 249, 249);text-align: center;margin: 80px 300px;">
+  <img src="/assets/permission.gif" alt="" width="50%"><br>
+  <h5 style="background-color: rgb(31, 31, 70);padding: 10px 0;">Your not Authorised to <b style="color: red;">Setting</b> </h5>
+  </div> -->
+<div class="settings-total" >
+
+  <!-- *ngIf="isSeeting===true" -->
+
+<div class="access-settings">
+
+  <h2 style="text-transform: uppercase;font-weight: bold;color: #21263C;" class="accessperm">Access permissions</h2>
+
+  <div class="d-flex mt-4 mb-3 colm-mv" style="align-items: center;">
+    <h3 class="mt-1 rolename" style="color: red;">User Name</h3>
+    <select class="form-select" (change)="userId($event)" aria-label="Default select example"
+      style="width: fit-content;border: 1px solid green;">
+      <option value="">--select--</option>
+      <option *ngFor="let data of allUser" value="{{data.id}}">{{data.login_id}}</option>
+      <!-- <option value="2">Cashier</option> -->
+    </select>
+  </div>
+
+</div>
+
+
+<!-------fileds-------->
+<!-- <form [formGroup]="dynamicForm">
+  <div formArrayName="dynamicDataArray">
+    <div *ngFor="let control of dynamicDataArray.controls; let i = index">
+      <input [formControl]="control" placeholder="Enter dynamic data {{ i + 1 }}" />
+    </div>
+  </div>
+</form> -->
+
+<!-- <button (click)="addControl()">Add Dynamic Data Field</button> -->
+
+
+
+    <!-------fileds-------->
+
+    <!-- <div class="save">
+      <button (click)="updatePermission()" class="btn-lg btn-success savebtn mt-1">Save</button>
+    </div> -->
+
+  </div>

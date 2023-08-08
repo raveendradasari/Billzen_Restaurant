@@ -1,0 +1,23 @@
+<div class="top-nav sticky-top">
+  <nav class="navbar m-auto">
+    <div class="row w-100">
+      <div class="col-md-10">
+        <!-- <button class="navbar-toggler" type="button" (click)="toggle()">
+          <span class="navbtn">
+            <i class="fa-solid fa-ellipsis-vertical" *ngIf="opened"></i>
+           <i class="fa-solid fa-ellipsis-vertical" *ngIf="!opened"></i>
+          </span>
+        </button> -->
+
+        <b><a  class="text-dash" style=" text-transform: capitalize;">{{title}}</a></b>
+        
+      </div>
+     
+      <div class="col lgout" style="margin: auto !important;align-items: center;">
+        <button class="logout " (click)="logout()" style="margin: 0 20px !important;"><i class="fa-solid fa-power-off user-icon"></i></button>
+        <button class="logout"  style="margin-left: 10px !important;"><i class="fa-solid fa-gear"></i></button>
+        <!-- routerLink="/company/settingspage" -->
+      </div>
+    </div>
+  </nav>
+</div>

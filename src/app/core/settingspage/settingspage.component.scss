@@ -1,0 +1,80 @@
+
+.submit-btn{
+    margin: 20px 30px !important;
+}
+
+
+.access-settings{
+    margin: 50px 25px auto 25px !important; 
+    display: flex;
+    flex-direction: column; 
+    }
+    
+    
+    
+    .fileds{
+        margin: 50px auto !important;
+        justify-content: center !important;
+        
+    }
+    .col{
+        margin: 10px auto !important;
+        font-size: 20px;
+    }
+    .col div{
+        text-align: left !important;
+        display: flex !important;justify-content: left !important;
+    }
+    .col input{
+        margin: 5px 10px;
+    }
+    
+    .save{
+        justify-content: left !important;
+        margin: 0 0 0 0px;
+    }
+    .savebtn{
+        margin: auto;
+        width: 120px;
+        border: 0 !important;
+    }
+
+
+    select{
+        margin-left: 10px;
+    }
+
+
+
+    @media(max-width:1200px){
+        .row{
+            flex-wrap: wrap !important;
+        }
+        .col{
+            width: 200px !important;
+        }
+    }
+    @media(max-width:1250px){
+        .rolename{
+            font-size: 16px;
+        }
+        .accessperm{
+            font-size: 20px;
+        }
+        .colm-mv{
+          flex-wrap: wrap;
+        }
+        .col input{
+            margin: 5px 2px;
+        }
+        .col{
+            font-size: 15px;
+        }
+            
+    }
+
+    @media(max-width:767px){
+       .row{
+        flex-direction: column;
+       }
+    }

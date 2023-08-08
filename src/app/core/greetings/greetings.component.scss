@@ -1,0 +1,218 @@
+
+
+.box{
+    border: 1px solid rgb(203, 198, 198);
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.subfield{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 10px;
+}
+.subfield label{
+    width: 150px !important;
+    margin: 0 5px;
+    font-size: 13px;
+}
+.right{
+    display: flex;
+    flex-wrap: wrap;
+}
+.subfield input{
+    width: 250px !important;
+}
+.checkboxes{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+}
+.ckbx1{
+    margin: 20px 0;
+    font-size: 14px;
+}
+.ckbx1 input{
+    margin: 0 5px;
+    width: 16px !important;
+    height: 16px !important;
+    position: relative;
+    top: 2px;
+}
+
+.search-bar{
+  margin: 20px 0px 0px 20px;
+}
+.search-bar input{
+  width: 500px;
+}
+
+.table-part{
+    margin-top: 50px;
+}
+
+
+table td{
+    padding:  15px auto !important;
+    margin: 0 auto;
+    font-size: 12px !important;
+    width: 200px !important;
+  }
+  
+  
+table th{
+  padding:  15px auto !important;
+  margin: 0 auto;
+  font-size: 14px !important;
+  width: 200px !important;
+}
+  
+  table thead{
+     background: aliceblue;
+     color: #408DFB;
+      font-size: 14px;
+      border: 1px solid #aaa8a8 !important;
+  }
+  .pencil{
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+  }
+  
+
+
+
+
+
+
+
+
+  @media(max-width:768px){
+    .table thead{
+        display: none;
+    }
+    .table, .table tbody,.table tr,.table td{
+        display: block;
+        width: 100%;
+    }
+   
+    .table tbody tr td{
+        text-align: right;
+        padding: 10px 2% 10px 30%;
+        position: relative;
+        width: 100% !important;
+    }
+  
+    .table td:before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 600;
+        text-align: left;
+        
+    }
+  
+  
+  }
+
+  @media(max-width:1025px){
+ 
+    .right{
+       
+        justify-content: flex-start !important;
+        margin: 0;
+        text-align: left !important;
+        width: 100% !important;
+        flex-direction: column;
+    }
+    .subfield{
+        margin: 10px 0;
+    }
+    .subfield label{
+        width: 200px !important;
+    }
+    .subfield input{
+        width: 100% !important;
+    }
+    .statuslabel{
+        display: flex !important;
+        flex-direction: row !important;
+    }
+  
+  }
+  
+
+  @media(max-width:768px){
+    .form-switch{
+      justify-content: flex-end !important;
+     }
+   
+    form .right div{
+        flex-direction: column;
+        text-align: center;
+        }
+  }
+
+  @media(max-width:600px){
+    .subfield input,.subfield{
+        width: 100% !important;
+    }
+  }
+
+  @media(max-width:475px){
+    .checkboxes{
+        flex-wrap: wrap;
+    }
+  }
+
+
+  
+/*----alldis--------*/
+
+@media(max-width:769px){
+
+    .alldis{
+      margin:  0 !important;
+    }
+    .alldis h3{
+      font-size: 15px;
+    }
+    .alldis .mt-3{
+      font-size: 13px;
+    }
+    .alldis input{
+      width: 40px !important;margin-right: 5px;height:20px !important;border-radius: 20px !important;
+    }
+  }
+  
+  @media(max-width:474px){
+    .alldis{
+      flex-direction: column;
+      margin: 0 0 20px 0 !important;
+    }
+    .alldis h3{
+      font-size: 18px;
+    }
+    .alldis .mt-3{
+      font-size: 16px;
+    }
+  
+    .alldis input{
+      width: 40px !important;margin-right: 5px;height:20px !important;border-radius: 20px !important;
+      position: relative !important;
+      right: 10px !important;
+    }
+  }
+  
+  @media(max-width:999px){
+    .statusarea{
+      flex-direction: row !important;
+    }
+    .statusarea label{
+      width: fit-content !important;
+    }
+  }

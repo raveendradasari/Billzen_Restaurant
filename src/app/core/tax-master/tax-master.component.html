@@ -1,0 +1,135 @@
+<div *ngIf="isSubcategory===false" style="color: rgb(252, 249, 249);text-align: center;margin: 80px 300px;">
+  <img src="/assets/permission.gif" alt="" width="50%"><br>
+  <h5 style="background-color: #21263C;padding: 10px;text-transform: capitalize;">Oops!!! Your are not Authorised</h5>
+</div>
+
+
+<div class=" table-part" *ngIf="isSubcategory===true">
+
+
+  <form [formGroup]="taxForm" (ngSubmit)="postTax()">
+
+    <p class="subredhead">Tax Master</p>
+    <!----sub-category------>
+
+    <div class="box">
+
+      <!-----form-fileds------>
+
+      <div class="right d-flex">
+
+
+        <div class="form subfield">
+          <label for="inlineFormSelectPref" >Tax Name <span>*</span></label>
+          <input type="text" id="form9Example1" class="form-control" formControlName="taxName">
+          <input type="hidden" formControlName="taxId">
+        </div>
+        <br>
+
+       <div class="form subfield">
+        <label for="inlineFormSelectPref" >Transaction Type <span>*</span></label>
+        <select class="select" formControlName="transactionId">
+          <option value="">--Select--</option>
+          <option *ngFor="let tra of transaction" value="{{tra.transactionId}}">{{tra.transactionName}}</option>
+
+        </select>
+       </div>
+
+        <div class="form subfield">
+          <label for="inlineFormSelectPref">Tax Percentage <span>*</span></label>
+          <input type="text" id="form9Example1" class="form-control" formControlName="tax_percent">
+        </div>
+        <div class="form subfield statusarea">
+          <label for="inlineFormSelectPref" > Status <span>*</span></label>
+
+          <div class="form-check form-switch">
+            <input class="form-check-input" formControlName="isactive" type="checkbox" id="flexSwitchCheckChecked"
+              style="width: 50px !important;">
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="modal-footer savesec">
+        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
+        <button type="submit" class="btn btn-sucess" style="background: green !important;">Save</button>
+      </div>
+
+      <!-----form-fileds------>
+
+    </div>
+
+
+
+    <!----sub-category------>
+
+  </form>
+
+
+
+  <div class="alldis">
+
+    <div style="display: flex;align-items: center !important;" class="newpart"> 
+      <h3>ALL TAX MASTERS</h3>
+
+  <div class="search-bar">
+    <form class="d-flex">
+      <input class="form-control me-2" 
+      type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+      <button class="btn btn-success" type="submit">Search</button>
+    </form>
+  </div>
+    
+    
+    
+    </div>
+     <div class="form-check form-switch" style="align-items: center !important;display: flex;">
+       <input class="form-check-input" type="checkbox" (click)="filtredIsActive()" [(ngModel)]="isChecked"
+         id="flexSwitchCheckChecked" checked style="width: 60px !important;margin-right: 5px;height:30px;border-radius: 30px;">
+         <!-- <p class="mt-3">Active/InActive</p> -->
+     </div>
+   
+   </div>
+
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+
+        <th scope="col">S.NO</th>
+        <th scope="col">Tax Name</th>
+        <th scope="col">Tax Percentage</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr *ngFor="let tax of taxAll |search:searchText;let i=index;">
+        <td data-label="ID">{{1+i}}</td>
+
+        <td data-label="Tax Name">{{tax.taxName}}</td>
+        <td data-label="Tax Percentage">{{tax.tax_percent}}</td>
+
+        <td data-label="Action">
+          <div class="form-check form-switch d-flex">
+            <input class="form-check-input" (click)="StatusUpdate(tax)" type="checkbox" id="flexSwitchCheckChecked"
+            [checked]="tax.isactive" style="width: 32px !important;height: 15px !important;">
+            <i class="fa fa-pencil mt-1" (click)="updateTax(tax)" style="color: red;margin: 0 10px;"></i>
+          </div>
+        </td>
+
+
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,167 @@
+
+<form>
+
+
+  <p class="subredhead">Discount Master</p>
+
+<form [formGroup]="discountForm" (ngSubmit)="discountPost()">
+  <div class="box">
+    <div class="details">
+     
+    </div>
+  
+    <!-----form-fileds------>
+  
+  
+    <div class="fields d-flex">
+  
+      <div class="right">
+  
+       
+  
+        <div class="d-flex percentage mt-2 mb-4">
+  
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+              checked /> <span>Percentage</span>
+          </div>
+    
+        <!-- <div class="form-check">
+            <input class="form-check-input mx-2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+            <span>Amount</span>
+          </div> -->
+    
+
+        </div>
+  
+    <div class="subfileds">
+
+        <div class="form subfield">
+          <label for="inlineFormSelectPref">Discount Percentage</label>
+          <input type="text" id="form9Example1" formControlName="discountPercentage" class="form-control" />
+          <input type="hidden" formControlName="discountId">
+        </div>
+
+        <div class="form subfield">
+          <label for="inlineFormSelectPref">Discount Category</label>
+          <input type="text" id="form9Example1" formControlName="discountCategory" class="form-control" />
+        </div>
+  
+        <div class="form subfield statusarea">
+          <label for="inlineFormSelectPref" > Status <span>*</span></label>
+  
+          <div class="form-check form-switch">
+            <input class="form-check-input" formControlName="isactive"  type="checkbox" id="flexSwitchCheckChecked" checked
+              style="width: 50px !important;">
+          </div>
+  
+        </div>
+
+      </div>
+  
+      </div>
+  
+    </div>
+  
+  
+    <div class="modal-footer savesec">
+      <button type="reset" class="btn btn-secondary"  data-bs-dismiss="modal">Clear</button>
+      <button type="submit" class="btn btn-sucess" style="background: green !important;">Save</button>
+    </div>
+  
+    <!-----form-fileds------>
+  </div>
+  
+  
+  
+  </form>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="dicuount-total">
+
+  
+    <div class="alldis">
+
+      <div style="display: flex;align-items: center !important;" class="newpart">
+        <h3>ALL DISCOUNT MASTERS</h3>
+
+        <div class="search-bar">
+          <form class="d-flex">
+            <input class="form-control me-2" 
+            type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+        </div>
+      
+      
+      
+      
+      </div>
+       <div class="form-check form-switch" style="align-items: center !important;display: flex;">
+         <input class="form-check-input" type="checkbox" (click)="filtredIsActive()" [(ngModel)]="isChecked"
+           id="flexSwitchCheckChecked" checked style="width: 60px !important;margin-right: 5px;height:30px !important;border-radius: 30px !important;">
+           <!-- <p class="mt-3">Active/InActive</p> -->
+       </div>
+     
+     </div>
+
+     </div>
+
+
+
+
+
+
+
+
+
+
+    
+    <table class="table table-part">
+        <thead>
+          <tr>
+            <th scope="col">S.NO</th>
+            <th scope="col">Discount Percent</th>
+            <th scope="col">Discount Category</th>
+            <th scope="col">Action</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let des of discount | search:searchText;let i=index;">
+            <td data-label="S.NO">{{i+1}}</td>
+            <td data-label="Discount value">{{des.discountPercentage}}</td>
+            <td data-label="Category">{{des.discountCategory}}</td>
+          
+  
+            
+            <td data-label="Action">
+              <span class="form-check form-switch" style="display: flex !important;">
+                  <div>
+                    <input class="form-check-input"  (click)="StatusUpdate(des)"  type="checkbox" id="flexSwitchCheckChecked" [checked]="des.isactive" style="width: 32px !important;height: 15px !important;">
+                  </div>
+                   <div><i class="fa fa-pencil" (click)="patchDiscount(des)"  style="color: red;margin: 0 10px;" ></i></div>
+                </span>
+           </td>
+  
+  
+          </tr>
+       
+        </tbody>
+    </table>
+    
+  
+    
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,166 @@
+
+
+<div class="toppart">
+
+
+
+<p class="top-heading">
+  Item Sales Reports
+</p>
+
+
+<div class="reportsarea">
+
+    <!-- <mat-form-field appearance="outline" >
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Start date">
+          <input matEndDate formControlName="end" placeholder="End date">
+        </mat-date-range-input>
+      
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      
+        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+      </mat-form-field> -->
+      
+      <form action="" [formGroup]="formDateFilter" (ngSubmit)="applyFilter()">
+        <div style="width: auto;">
+          <input type="date" formControlName="fromDate">&nbsp;
+          <input type="date" formControlName="toDate">&nbsp;
+          <!-- <select name="" id="" formControlName="category_id">
+            <option value="">--select--</option>
+            <option *ngFor="let cat of category" value="{{cat.categoryId}}">{{cat.categoryName}}</option>
+          </select>&nbsp; -->
+          <button type="submit">Apply</button>
+          <button type="reset" (click)="itemReportGet()">Reset</button>
+
+
+        </div>
+      </form>
+      
+
+      <div class="buttonsarea" style="margin-left: auto;">
+     
+        <button mat-raised-button style="background: green;color: white;">SHOW REPORT</button>
+        <button mat-raised-button color="warn">CANCEL</button>
+      </div>
+    
+</div>
+
+
+</div>
+
+
+<div class="bottompart">
+
+<!-- <h1>Item wise sales report</h1> -->
+
+<!------boxpart------->
+
+<div class="boxarea">
+
+<div class="box1">
+  <div class="pinkbtn">
+    <button class="btn"><i class="fa fa-file"></i></button>
+  </div>
+
+  <div>
+    <p>Total Quantity</p>
+    <p>0</p>
+  </div>
+
+</div>
+
+
+<div class="box1">
+  <div class="pinkbtn">
+    <button class="btn"><i class="fa fa-file"></i></button>
+  </div>
+
+  <div>
+    <p>Return Quantity</p>
+    <p>0</p>
+  </div>
+
+</div>
+
+
+<div class="box1">
+  <div class="bluebtn">
+    <button class="btn"><i class="fa fa-file"></i></button>
+  </div>
+
+  <div>
+    <p>Sales Quantity</p>
+    <p>0</p>
+  </div>
+
+</div>
+
+
+<div class="box1">
+  <div class="bluebtn">
+    <button class="btn"><i class="fa fa-file"></i></button>
+  </div>
+
+  <div>
+    <p>Total Sale Amount</p>
+    <p>0.00</p>
+  </div>
+
+</div>
+</div>
+
+
+<!----table------->
+
+
+
+<div class="search-bar">
+  <form class="d-flex">
+    <input class="form-control me-2" 
+    type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+    <button class="btn btn-success" type="submit">Search</button>
+  </form>
+</div>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Gross Amt</th>
+      <th scope="col">Discount</th>
+      <th scope="col">Comp</th>
+      <th scope="col">SGST</th>
+      <th scope="col">CGST</th>
+      <th scope="col">Charge</th>
+      <!-- <th scope="col">Net</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of itemReport |search:searchText">
+      <td>{{item.item_name}}</td>
+      <td>{{item.Quantity}}</td>
+      <td>{{item.GrossAmount}}</td>
+      <td>{{item.Discount}}</td>
+     <td>{{item.Complementary}}</td>
+     <td>{{item.SGST}}</td>
+     <td>{{item.CGST}}</td>
+     <td>{{item.NetAmount}}</td>
+     <!-- <td>{{item.item_name}}</td> -->
+
+    </tr>
+   
+   
+   
+  </tbody>
+</table>
+
+
+
+</div>

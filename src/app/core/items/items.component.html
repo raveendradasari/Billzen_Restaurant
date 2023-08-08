@@ -1,0 +1,315 @@
+
+
+
+<div class="items-page">
+
+
+ <!------item--popup----->
+ <form [formGroup]="itemForm" (ngSubmit)="ItemPost()">
+
+   
+ <div class="popup-body">
+         
+
+  <!-----form-fileds------>
+
+
+  <p class="subredhead mt-1" >Item Master</p>
+  <div class="fields d-flex">
+   <div class="topsec" style="display: flex;flex-wrap: wrap;">
+
+    <div class="form subfield">
+      <label for="inlineFormSelectPref" >Item Name</label>
+      <input type="text" id="form9Example1" formControlName="item_name" class="form-control" />
+    </div>
+
+    <div class="form subfield">
+      <label for="inlineFormSelectPref">Category</label>
+      <select class="select" formControlName="categoryId">
+        <option value="">Select</option>
+        <option *ngFor="let cat of category" value="{{cat.categoryId}}">{{cat.categoryName}}</option>
+        <!-- <option value="2">Two</option> -->
+      </select>
+    </div>
+
+    <div class="form subfield">
+      <label for="inlineFormSelectPref" >Bar Code</label>
+      <input type="text" id="form9Example1" formControlName="barCode" class="form-control" />
+    </div>
+
+    <div class="form subfield">
+      <label for="inlineFormSelectPref" >Discount Percentage%</label>
+      <input type="text" id="form9Example1"  formControlName="discount_percentage" class="form-control" />
+    </div>
+
+    <div class="form subfield">
+      <label for="inlineFormSelectPref" >Sub Category</label>
+      <select class="select" formControlName="subcategoryId">
+        <option value="">Select</option>
+        <option *ngFor="let sub of subcategory" value="{{sub.subcategoryId}}">{{sub.subcategoryName}}</option>
+        <!-- <option value="2">Two</option> -->
+      </select>
+    </div>
+
+    <div class="form subfield">
+      <label for="inlineFormSelectPref" >Sales Price</label>
+      <input type="text" id="form9Example1" formControlName="salePrice" class="form-control" />
+    </div>
+
+    <div class="form subfield">
+      <label for="inlineFormSelectPref" >HSN Code</label>
+      <input type="text" id="form9Example1" formControlName="hsnCode" class="form-control" />
+    </div>
+    <div class="form subfield">
+      <label for="inlineFormSelectPref" >Tax Rate</label>
+      <input type="text" id="form9Example1" formControlName="taxRate" class="form-control" />
+    </div>
+
+    <div class="form subfield">
+      <label for="inlineFormSelectPref" >UOM</label>
+      <select class="select" formControlName="unitId">
+        <option value="">Select</option>
+        <option *ngFor="let unit of units" value="{{unit.id}}">{{unit.name}}</option>
+        <!-- <option value="2">Two</option> -->
+      </select>    </div>
+      <input type="hidden" formControlName="itemId">
+   
+
+
+      <div class="form subfield " style="display: flex !important;flex-direction: row;align-items: center;">
+     <div style="display: flex;flex-direction: column !important;">
+     
+      <!-- <i class="fa-solid fa-cloud-arrow-up"></i> -->
+      <div style="display: flex;">
+        <label for="inlineFormSelectPref">Excel</label>
+        <input type="file" (change)="onFileChange($event)">&nbsp;
+        <button type="button" (click)="convertToExcelCategory()">Category Memo</button>&nbsp;
+        <button type="button" (click)="convertToExcelSubcat()">Subcategory Memo</button>&nbsp;
+        <button type="button" (click)="convertToExcelUnit()">Unit Memo</button>
+
+      </div>
+
+     </div>
+    <div style="margin-top: 20px;margin-left: 10px;">
+      <i class="fa-solid fa-download" style="color: blue;"></i>
+    </div>
+
+        
+      </div>
+
+
+      <div class="modal-footer savesec">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
+        <button type="submit" class="btn btn-sucess" style="background: green !important;">Save</button>
+      </div>
+
+   </div>
+  </div>
+  <!-- <button type="submit">save</button> -->
+
+ <div class="downsec">
+
+ 
+ <div class="rone">
+
+<div class="firsttable">
+  <p class="subredhead">Transaction Rates</p>
+  <table class="table table-sm table-bordered table1">
+    
+    <thead>
+      <tr>
+      
+        <th scope="col">Transaction Type</th>
+        <th scope="col">Cost</th>
+       
+      </tr>
+    </thead>
+    <tbody formArrayName="TransactionItems">
+      <tr *ngFor="let traGroup of  TransactionItems.controls; let i = index" [formGroupName]="i">
+        <td> {{transation[i].transactionName}} </td>
+      
+        <td class="secdata">
+          <input type="hidden" formControlName="transactionItemId">
+          <input type="hidden" formControlName="transactionId">
+          <input type="text" formControlName="transactionItemCost" class="inp">
+        </td>
+      </tr>
+   
+
+
+  
+  </tbody>
+  </table>
+</div>
+
+
+<div class="secondtable">
+  <p class="subredhead">Section Rates</p>
+
+ 
+
+    <table class="table table-sm table-bordered" >
+    
+      <thead>
+        <tr>
+        
+          <th scope="col">Section Type</th>
+          <th scope="col">Cost</th>
+         
+        </tr>
+      </thead>
+   
+  
+        <tbody formArrayName="SectionItemRates">
+          <tr *ngFor="let secGroup of  SectionItemRates.controls; let i = index" [formGroupName]="i">
+            <td> {{section[i].name}} </td>
+            <td class="secdata">
+              <input type="hidden" formControlName="sectionRateId">
+             
+              <input type="hidden" formControlName="sectionId" >
+              <input type="text" formControlName="itemRate" class="inp">
+            </td>
+          </tr>
+       
+  
+  
+      
+      </tbody>
+    </table>
+
+   
+
+
+ 
+</div>
+
+
+<div class="thirdtable">
+  <p class="subredhead">Item Tax</p>
+
+  <table class="table table-sm table-bordered table3">
+    
+    <thead>
+      <tr>
+    
+        <th scope="col">Item Tax</th>
+        <th scope="col">Percentage%</th>
+       
+      </tr>
+    </thead>
+    <tbody formArrayName="taxItems">
+      <tr *ngFor="let taxType of taxItems.controls; let i = index" [formGroupName]="i">
+       <td><input type="hidden" formControlName="itemTaxId">
+        
+        <input type="hidden" formControlName="taxId" > 
+          <input type="checkbox" formControlName="isActive" class="checkbx">{{tax[i].taxName}}</td>
+        <td class="secdata">{{tax[i].tax_percent}}%</td>
+       
+      </tr>
+   
+    </tbody>
+  </table>
+
+
+</div>
+
+
+ </div>
+
+
+
+  <!-----form-fileds------>
+
+
+</div>
+
+
+</div>
+</form>
+
+<!------item--popup----->
+
+
+
+  
+
+
+
+<div class="alldis">
+
+  <div style="display: flex;align-items: center;" class="newpart">
+     <h3>ALL ITEM MASTERS</h3>
+     <div class="search-bar">
+      <form class="d-flex">
+        <input class="form-control me-2" 
+        type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+   <div class="form-check form-switch" style="align-items: center !important;display: flex;">
+     <input class="form-check-input" type="checkbox" (click)="filtredIsActive()" [(ngModel)]="isChecked"
+       id="flexSwitchCheckChecked" checked style="width: 60px !important;margin-right: 5px;height:30px;border-radius: 30px;">
+       <!-- <p class="mt-3">Active/InActive</p> -->
+   </div>
+ 
+ </div>
+
+
+
+
+  
+  <table class="table bigtable">
+      <thead>
+        <tr>
+         
+          <th scope="col">Category</th>
+          <th scope="col">Sub Category</th>
+          <th scope="col">Item Name</th>
+          <!-- <th scope="col">Item Code</th> -->
+          <th scope="col">Item Cost</th>
+          <!-- <th scope="col">Item Price</th> -->
+          <th scope="col">Unit Name</th>
+          <!-- <th scope="col">HSN Code</th> -->
+          <!-- <th scope="col">Discount</th> -->
+          <th scope="col">Bar Code</th>
+          <!-- <th scope="col">Availability</th>
+          <th scope="col">Active / Deactive</th> -->
+         
+          <th scope="col">Action</th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let item of items | search:searchText">
+         
+          <td data-label="categoryName">{{item.categoryName}}</td>
+          <td data-label="subcategoryName">{{item.subcategoryName}}</td>
+          <td data-label="item-Name">{{item.item_name}}</td>
+          <!-- <td>item code</td> -->
+          <td data-label="salePrice">{{item.salePrice}}</td>
+          <!-- <td>item price</td> -->
+          <td data-label="UnitName">{{item.UnitName}}</td>
+          <!-- <td>{{item.hsnCode}}</td> -->
+          <!-- <td>discount</td> -->
+          <td data-label="BarCode">{{item.barCode}}</td>
+          <td data-label="Action">
+            <span class="form-check form-switch" style="display: flex !important;">
+                <div>
+                  <input class="form-check-input" (click)="StatusUpdate(item)" type="checkbox" [checked]="item.isActive" id="flexSwitchCheckChecked" checked style="width: 32px !important;height: 15px !important;">
+                </div>
+                 <div><i class="fa fa-pencil" (click)="patchValueUp(item)"  style="color: red;margin: 0 10px;" ></i></div>
+              </span>
+         </td>
+
+        </tr>    
+      </tbody>
+  </table>
+  
+  
+</div>
+
+
+ 
+  

@@ -1,0 +1,117 @@
+<!--Main Navigation-->
+
+
+<header>
+    <!-- Sidebar -->
+
+    <nav   [class.togglenav]="remove" 
+    id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white shadow">
+
+        <div class="sidebar-content">
+    
+      
+          <div class="sidebar-menu" style="box-flex-group: white !important;">
+            <ul >
+              <li *ngFor="let menu of menus"
+                  [ngClass]="{'active': menu.active , 'sidebar-dropdown':menu.type === 'dropdown' , 'header-menu':menu.type === 'header'}">
+                <span *ngIf="menu.type === 'header'">{{menu.title}}</span>
+                <a *ngIf="menu.type !== 'header' && menu.type !== 'simple'" (click)='toggle(menu)'>
+                  <i class="{{menu.icon}} fa-icon"></i>
+                  <span>{{menu.title}}</span>
+                  <span *ngIf="menu.badge" class="badge badge-pill" [ngClass]="menu.badge.class">{{menu.badge.text}}</span>
+                </a>
+                <a *ngIf="menu.type === 'simple'" [routerLink]="[menu.routerLink]" routerLinkActive="active"
+                   [routerLinkActiveOptions]="menu.routerOptions" (click)='toggle(menu)'>
+                  <i class="{{menu.icon}}"></i>
+                  <span>{{menu.title}}</span>
+                  <span *ngIf="menu.badge" class="badge badge-pill" [ngClass]="menu.badge.class">{{menu.badge.text}}</span>
+                </a>
+                <div *ngIf="menu.type === 'dropdown'" class="sidebar-submenu" [@slide]="getState(menu)">
+                  <ul>
+                    <li *ngFor="let submenu of menu.submenus;">
+                      <a *ngIf="submenu.type === 'simple'" [routerLink]="[submenu.routerLink]"
+                         routerLinkActive="active" [routerLinkActiveOptions]="submenu.routerOptions"
+                         (click)='toggle(submenu)'>
+                        <i class="{{submenu.icon}}"></i>
+                        <span>{{submenu.title}}</span>
+                        <span *ngIf="submenu.badge" class="badge badge-pill"
+                              [ngClass]="submenu.badge.class">{{submenu.badge.text}}</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+    
+    
+    
+    
+        </div>
+      </nav>
+
+
+
+
+
+
+
+
+
+    <!-- Sidebar -->
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg fixed-top" style="background: #21263C;padding: 0;margin: 0;">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+                aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color: white;"></i>
+            </button>
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">
+               <h3 class="text-center mt-2" style="color: white;font-weight: bold;font-size: 18px;">Billzen</h3> 
+            </a>
+           
+
+            <!-- Right links -->
+            <ul class="navbar-nav ms-auto d-flex flex-row">
+                
+                <div class="lgout " style="margin: auto 20px;align-items: center;">
+                    <button class="logout btn" >
+                        <i class="fa-solid fa-power-off user-icon"></i>
+                    </button>
+                    <button class="logout btn" routerLink="/masters/settingspage" style="margin-left: 10px !important;">
+                        <i class="fa-solid fa-gear"></i>
+                    </button>
+                  </div>
+             
+            </ul>
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 30px;">
+    <div class="mainpart pt-4">
+        <router-outlet></router-outlet>
+    </div>
+</main>
+<!--Main layout-->

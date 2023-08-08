@@ -1,0 +1,214 @@
+<form [formGroup]="staffForm" (ngSubmit)="postStaf()">
+
+  <p class="subredhead">Staff Master</p>
+
+  <div class="box">
+
+
+    <!-----form-fileds------>
+
+
+    <div class="fields d-flex">
+
+      <div class="right">
+
+        <p class="discdeatails">Personal Information </p>
+
+        <div class="form subfield">
+          <label for="inlineFormSelectPref">Full Name <span>*</span></label>
+          <input type="text" formControlName="staff_name" id="form9Example1" class="form-control" />
+          <input type="hidden" formControlName="staffId">
+        </div>
+
+        <div class="form subfield">
+          <label for="inlineFormSelectPref">Mobile No. <span>*</span></label>
+          <input type="number" formControlName="Mobilenumber" id="form9Example1" class="form-control" />
+        </div>
+
+        <div class="form subfield">
+          <label class="form-label" for="textAreaExample">Address <span>*</span></label>
+          <textarea class="form-control" formControlName="address" id="textAreaExample" rows="3"></textarea>
+        </div>
+
+
+      </div>
+
+
+      <div class="left">
+
+        <p class="discdeatails">Staff Information </p>
+
+
+        <div class="subfield">
+          <label for="inlineFormSelectPref">Joining Date</label>
+          <input type="date" formControlName="joiningdate" style="height: 30px;">
+
+        </div>
+
+
+        <div class="subfield">
+          <label for="inlineFormSelectPref">Reffered By</label>
+          <input type="text" formControlName="refferedby" id="form9Example1" class="form-control" />
+        </div>
+
+
+        <div class="subfield">
+          <label for="inlineFormSelectPref">Designition <span>*</span></label>
+          <input type="text" formControlName="designation" id="form9Example1" class="form-control" />
+        </div>
+
+
+        <div class="subfield">
+          <label for="inlineFormSelectPref">Department <span>*</span></label>
+          <input type="text" formControlName="department" id="form9Example1" class="form-control" />
+        </div>
+
+
+      </div>
+
+      <div class="identity">
+
+        <p class="discdeatails mt-4">Identity Details </p>
+
+        <div class="subfield documenttype d-flex" style="align-items: center;">
+          <label for="inlineFormSelectPref">Document Type </label>
+          <select class="select" formControlName="document_type">
+            <option value="">--select--</option>
+            <option value="Aadhar">Aadhar</option>
+            <option value="Pan">Pan</option>
+            <option value="Driving Licence">Driving Licence</option>
+          </select>
+        </div>
+
+        <div class="form subfield d-flex" style="align-items: center;margin-left: auto;">
+          <label for="inlineFormSelectPref">Document No. <span>*</span></label>
+          <input type="text" formControlName="documentdetails" id="form9Example1" class="form-control mx-2" />
+        </div>
+
+        <div class="form subfield d-flex statusarea">
+          <label for="inlineFormSelectPref"> Status <span>*</span></label>
+          <div class="form-check form-switch mx-2">
+            <input class="form-check-input" formControlName="isactive" type="checkbox" id="flexSwitchCheckChecked"
+              style="width: 50px !important;">
+          </div>
+
+        </div>
+
+        
+        <div class="modal-footer savesec">
+          <button type="reset" class="btn btn-secondary">Clear</button>
+          <button type="submit" class="btn btn-sucess" style="background: green !important;">Save</button>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+
+    <!-----form-fileds------>
+
+
+
+  </div>
+
+
+
+
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+<div *ngIf="isStaff===false" style="color: rgb(252, 249, 249);text-align: center;margin: 80px 300px;">
+  <img src="/assets/permission.gif" alt="" width="50%"><br>
+  <h5 style="background-color: rgb(31, 31, 70);">Your not Authorised</h5>
+</div>
+
+
+
+
+<div class="staff-page" *ngIf="isStaff===true">
+
+
+  <div class="search-bar">
+    <form class="d-flex">
+      <input class="form-control me-2" 
+      type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+      <button class="btn btn-success" type="submit">Search</button>
+    </form>
+  </div>
+
+
+  <div class="alldis">
+
+    <div> <h3>ALL STAFF MASTERS</h3></div>
+     <div class="form-check form-switch mainswitch" style="align-items: center !important;display: flex;">
+       <input class="form-check-input" type="checkbox" (click)="filtredIsActive()" [(ngModel)]="isChecked"
+         id="flexSwitchCheckChecked" checked style="width: 60px !important;margin-right: 5px;height:30px;border-radius: 30px;">
+         <p class="mt-3">Active/InActive</p>
+     </div>
+   
+   </div>
+
+
+  <table class="table table-part">
+    <thead>
+      <tr>
+        <th scope="col">S.NO</th>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Joining Date</th>
+        <th scope="col">Designition</th>
+        <th scope="col">Department</th>
+        <th scope="col">Document Type</th>
+        <th scope="col">Document No.</th>
+        <th scope="col">ACTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let staf of staff;let i=index;">
+        <td data-label="S.NO">{{1+i}}</td>
+        <td data-label="Name">{{staf.staff_name}}</td>
+        <td data-label="Mobile">{{staf.Mobilenumber}}</td>
+        <td data-label="Joining Date">{{staf.joiningdate|date}}</td>
+        <td data-label="Designition">{{staf.designation}}</td>
+        <td data-label="Department">{{staf.department}}</td>
+        <td data-label="Documen Type">{{staf.document_type}}</td>
+        <td data-label="Document Details">{{staf.documentdetails}}</td>
+
+       
+
+
+        
+        <td data-label="Action">
+          <span class="form-check form-switch" style="display: flex !important;">
+              <div>
+                <input class="form-check-input" (click)="StatusUpdate(staf)" type="checkbox" id="flexSwitchCheckChecked"
+                [checked]="staf.isactive"style="width: 32px !important;height: 15px !important;">
+              </div>
+               <div><i class="fa fa-pencil"  (click)="updateStaff(staf)"  style="color: red;margin: 0 10px;" ></i></div>
+            </span>
+       </td>
+
+
+      </tr>
+
+    </tbody>
+  </table>
+
+
+
+
+
+</div>

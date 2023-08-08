@@ -1,0 +1,295 @@
+
+
+
+.alldis{
+  text-align: left !important;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+
+
+table{
+ width: fit-content;
+  margin: auto;
+}
+
+.table-part{
+margin: 0px 0px 20px 0px !important;
+}
+
+
+.alldis h3{
+  color: #408DFB;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 20px 0 15px 0;
+}
+
+table{
+border: 1px solid grey;
+}
+table th{
+color: #408DFB;
+font-weight: bold;
+}
+table td{
+  border-bottom: 1px solid rgb(163, 161, 161) !important;
+}
+table th{
+padding:  15px auto !important;
+margin: 0 auto;
+width: 400px;
+font-size: 14px !important;
+}
+table td{
+  padding:  15px auto !important;
+  margin: 0 auto;
+  width: 400px;
+  font-size: 13.5px !important;
+  }
+table thead{
+ background: aliceblue;
+  font-size: 16px;
+}
+.pencil{
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+td,th,tr{
+  border: 0 !important;
+}
+
+
+
+
+/*------nc--popup----*/
+
+
+
+.box{
+  margin: 10px 0 0px 0!important;
+  border: 1px solid #aaa8a8;
+  border-radius: 5px;
+  padding: 20px 0 10px 0;
+  display: flex;
+}
+.right,.left{
+  flex-wrap: wrap;
+  text-align: left !important;
+  margin: 0 20px;
+}
+
+.right .subfield,.left .subfield{
+margin: 10px;
+}
+
+.right select,.left select{
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #aaa8a8 !important;
+}
+input{
+  width: 200px;
+}
+
+.right div,.left div{
+  display: flex;
+  align-items: center;
+}
+.right div label, .left div label{
+  width: 150px !important;
+  font-size: 15px;
+}
+
+
+
+.savesec{
+ display: flex;
+align-items: center;
+justify-content: flex-end;
+text-align: center;
+margin: 10px 0;
+}
+.savesec button{
+  background: #21263C;
+  color: white;
+}
+.savesec img{
+  width: 22px;
+  height: 22px;
+  border-radius: 100%;
+  margin: 0 2px;
+}
+
+label span{
+  color: red;
+
+}
+
+.fa-pencil{
+  color: orangered;
+  border-radius: 100%;
+  margin-left: 10px;
+  font-size: 18px;
+}
+/*------nc--popup----*/
+
+
+  
+
+/*------media-queries----------*/
+
+
+
+@media(max-width:1030px){
+.right,.left{
+  flex-direction: column !important;
+}
+
+.right div,.left div{
+  text-align: left !important;
+}
+.right label,.left label{
+  width: 100% !important;
+}
+}
+
+@media(max-width:999px){
+.box{
+  flex-direction: column;
+}
+.alldis{
+  flex-direction: column;
+  margin: 0 0 20px 0 !important;
+}
+.permissionline{
+  text-align: center !important;
+}
+.table-part{
+  margin: 0px 0px 20px 0px !important;
+  padding: 0;
+  }
+  .right,.left{
+    width: 100% !important;
+    text-align: center;
+    margin: auto;
+  }
+  .right .subfield,.left .subfield{
+    text-align: center !important;
+   flex-direction: column;
+    margin: 10px 0 !important;
+   width: 100% !important;
+  }
+  .right label,.left label{
+    width: 100% !important;
+    margin: 0 !important;
+  }
+.box{
+  margin: 0px 0 !important;
+}
+
+ .box select{
+  margin: 0 !important;
+ }
+  .savesec{
+    justify-content: center !important;
+    margin: 10px auto auto auto !important;
+  }
+  .right input,select.input-group,.left input,select,.input-group{
+    width: 80% !important;
+  }
+  .left .subfield textarea{
+    width: 100% !important;
+  }
+  .permissionline{
+    text-align: center !important;
+    font-size: 15px !important;
+  }
+}
+
+
+
+@media(max-width:768px){
+.table thead{
+    display: none;
+}
+.table, .table tbody,.table tr,.table td{
+    display: block;
+    width: 100%;
+}
+
+.table tbody tr td{
+    text-align: right;
+    padding: 10px 2% 10px 30%;
+    position: relative;
+}
+
+
+.table td:before{
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: 600;
+    text-align: left;
+    
+}
+.discdeatails{
+  text-align: center;
+  margin-bottom: 20px !important;
+}
+
+}
+
+.subredhead{
+  color: red;
+  margin: 10px 0 0 0;
+  font-weight: bold;
+}
+
+@media(max-width:768px){
+.form-switch{
+  justify-content: flex-end !important;
+ }
+}
+
+
+.search-bar{
+  margin: 10px 0px 10px 0px;
+}
+.search-bar input{
+  width: 500px;
+}
+
+
+@media(max-width:1000px){
+  .search-bar{
+    margin: 20px 0px;
+    width: 100%;
+  }
+  .search-bar input{
+    width: 100%;
+  }
+}
+
+
+
+
+@media(max-width:768px){
+.form-switch{
+  justify-content: flex-end !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+ }
+ .form-switch input{
+ margin-left: auto !important;
+ }
+
+}

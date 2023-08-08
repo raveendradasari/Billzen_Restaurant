@@ -1,0 +1,133 @@
+<form [formGroup]="shiftForm" (ngSubmit)="shiftPost()">
+
+  <p class="subredhead">Shift Master</p>
+
+  <!-----form-fileds------>
+
+  <div class="box">
+
+    <div class="right d-flex">
+
+
+      <div class="form subfield">
+        <label for="inlineFormSelectPref" style="width: 180px;">Shift Name <span>*</span></label>
+        <input formControlName="shift_name" type="text" id="form9Example1" class="form-control" />
+        <input type="hidden" formControlName="shiftId">
+      </div>
+      <div class="form subfield">
+        <label for="inlineFormSelectPref" style="width: 180px;">Shift Start Date <span>*</span></label>
+        <input formControlName="shift_start_date" type="date" id="form9Example1" class="form-control" />
+      </div>
+      <div class="form subfield">
+        <label for="inlineFormSelectPref" style="width: 180px;">Shift Start Time <span>*</span></label>
+        <input formControlName="shift_start_time" type="time" id="form9Example1" class="form-control" />
+      </div>
+      <div class="form subfield">
+        <label for="inlineFormSelectPref" style="width: 180px;">Shift End Date<span>*</span></label>
+        <input formControlName="shift_end_date" type="date" id="form9Example1" class="form-control" />
+      </div>
+      <div class="form subfield">
+        <label for="inlineFormSelectPref" style="width: 180px;">Shift End Time<span>*</span></label>
+        <input formControlName="shift_end_time" type="time" id="form9Example1" class="form-control" />
+      </div>
+
+      <div class="form subfield statusarea">
+        <label for="inlineFormSelectPref" style="width: 180px;"> Status <span>*</span></label>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input" formControlName="isactive" type="checkbox" id="flexSwitchCheckChecked" checked  
+            style="width: 50px !important;">
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+
+    <div class="modal-footer savesec">
+      <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
+      <button type="submit" class="btn btn-sucess" style="background: green !important;">Save</button>
+    </div>
+  </div>
+
+  <!-----form-fileds------>
+
+
+</form>
+
+<div class="category-page">
+
+
+  <div class="alldis">
+
+    <div style="display: flex;align-items: center !important;" class="newpart"> 
+      <h3>ALL SHIFT MASTERS</h3>
+
+      
+
+  <div class="search-bar">
+    <form class="d-flex">
+      <input class="form-control me-2" 
+      type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+      <button class="btn btn-success" type="submit">Search</button>
+    </form>
+  </div>
+
+
+    </div>
+     <div class="form-check form-switch" style="align-items: center !important;display: flex;">
+       <input class="form-check-input" type="checkbox" (click)="filtredIsActive()" [(ngModel)]="isChecked"
+         id="flexSwitchCheckChecked" checked style="width: 60px !important;margin-right: 5px;height:30px;border-radius: 30px;">
+         <!-- <p class="mt-3">Active/InActive</p> -->
+     </div>
+   
+   </div>
+
+
+
+  <table class="table table-part">
+    <thead>
+      <tr>
+
+        <th scope="col">S.NO</th>
+        <th scope="col">Shift Name</th>
+        <th scope="col">Start Shift</th>
+        <th scope="col">End Shift</th>
+
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shif of shift |search:searchText;let i=index;">
+        <td data-label="S.NO">{{1+i}}</td>
+        <td data-label="Shift Name">{{shif.shift_name}}</td>
+        <td data-label="Shift Start">{{shif.shift_start_time}}</td>
+        <td data-label="Shift End">{{shif.shift_end_time}}</td>
+
+  
+
+
+        <td data-label="Action">
+          <span class="form-check form-switch" style="display: flex !important;">
+              <div>
+                <input class="form-check-input" (click)="StatusUpdate(shif)"  type="checkbox" id="flexSwitchCheckChecked" [checked]="shif.isactive"
+                 style="width: 32px !important;height: 15px !important;">
+              </div>
+               <div><i class="fa fa-pencil"  (click)="updateShift(shif)"  style="color: red;margin: 0 10px;" ></i></div>
+            </span>
+       </td>
+
+
+      </tr>
+
+    </tbody>
+  </table>
+<div style="text-align: center;color: red;" *ngIf="isData==false"><b>Data Not Fount</b></div>
+
+</div>

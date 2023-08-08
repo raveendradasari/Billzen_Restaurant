@@ -1,0 +1,176 @@
+
+
+
+
+
+.top-heading{
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+.reportsarea{
+    padding: 20px 0px 0 20px;
+    background: white;
+    box-shadow: 0 0 20px 20px whitesmoke;
+    border-radius: 10px;
+    display: flex;
+    border: 1px solid rgb(223, 218, 218);
+}
+
+
+
+
+
+.buttonsarea{
+    margin-right: 20px;
+}
+.buttonsarea button{
+    margin: 0px 5px 15px 5px;
+}
+
+
+/*--------bottom-part----*/
+
+
+h1{
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.boxarea{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 20px 20px whitesmoke;
+}
+.box1{
+    display: flex;
+}
+.box1 p{
+    margin: 5px 0;
+    font-weight: bold;
+}
+.pinkbtn,.bluebtn{
+    margin-right: 15px;
+}
+.pinkbtn button{
+    background: rgb(241, 216, 228);
+    border-radius: 100%;
+}
+
+.pinkbtn i{
+   color: hotpink;
+   font-size: 20px;
+   padding: 10px 8px;
+}
+.bluebtn button{
+    background: rgb(194, 229, 233);
+    border-radius: 100%;
+}
+
+.bluebtn i{
+    color: rgb(21, 213, 223);
+    font-size: 20px;
+   padding: 10px 8px;
+ }
+
+
+
+
+
+ /*-------table------------*/
+
+.search-bar{
+    width: 500px;
+    margin: 20px 0 20px 0;
+}
+thead{
+    background: aliceblue;
+    font-weight: bold;
+    color: blue;
+    border: 1px solid grey;
+}
+
+
+/*--media queries--------*/
+
+@media(max-width:991.98px){
+    .reportsarea{
+        flex-direction: column !important;
+        padding: 10px;
+    }
+    .buttonsarea{
+        margin-right: 0px;
+        text-align: center;
+    }
+    .buttonsarea button{
+        margin: 5px 2px;
+    }
+    .boxarea{
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    .search-bar{
+        width:fit-content !important;
+        margin: 20px 0;
+    }
+}
+
+
+@media(max-width:768px){
+    .table thead{
+        display: none;
+    }
+    .table, .table tbody,.table tr,.table td{
+        display: block;
+        width: 100%;
+    }
+    
+    .table tbody tr td{
+        text-align: right;
+        padding: 10px 2% 10px 30%;
+        position: relative;
+        font-size: 14px;
+    }
+    
+    
+    .table td:before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: 600;
+        text-align: left;
+        
+    }
+}
+
+@media(max-width:1025px){
+    .table td,th{
+        font-size: 15px;
+    }
+}
+
+@media(max-width:500px){
+    .pinkbtn i{
+        color: hotpink;
+        font-size: 16px;
+        padding: 6px 2px;
+     }
+   
+     
+     .bluebtn i{
+         color: rgb(21, 213, 223);
+         font-size: 16px;
+        padding: 6px 2px;
+      }
+}

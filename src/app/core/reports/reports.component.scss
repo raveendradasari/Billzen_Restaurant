@@ -1,0 +1,61 @@
+
+
+
+
+.salesreport{
+    margin: 0 50px;
+}
+
+
+mat-toolbar{
+    background: white;
+    box-shadow: 0 0 20px 20px whitesmoke;
+    color: blue;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+    position: relative;
+    top: 20px;
+}
+
+.reportsarea{
+    padding: 30px 20px;
+    background: white;
+    box-shadow: 0 0 20px 20px whitesmoke;
+    border-radius: 20px;
+}
+.firstsec,.secsec{
+    display: flex;
+    justify-content: space-between !important;
+}
+.report1{
+   text-align: left;
+   margin: 30px auto 20px auto;
+   width: 550px;
+
+}
+.report1 a{
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+.report1 p{
+    margin: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

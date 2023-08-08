@@ -1,0 +1,434 @@
+.box{
+  margin: 10px 0px 10px 0px !important;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  border: 1px solid #aaa8a8;
+  border-radius: 5px;
+  padding: 10px 0 0 0;
+}
+
+
+.table-part{
+  margin: 0px 0px 20px 0px !important;
+  padding: 20px 0;
+  }
+
+
+table{
+    width: fit-content;
+    margin: auto;
+   
+}
+
+
+
+table th,td{
+  padding:  15px auto !important;
+  margin: 0 auto;
+  font-size: 13px !important;
+  width: 200px !important;
+}
+
+
+table thead{
+   background: aliceblue;
+   color: #408DFB;
+    font-size: 15px;
+    border: 1px solid #aaa8a8 !important;
+}
+.pencil{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+
+
+
+/*-----customer-popup----*/
+
+
+.customerpopup{
+  align-items: center;
+  margin: auto;
+}
+.customerpopup .discount-popup{
+    width: fit-content;
+    height: fit-content;
+    background: white !important;
+    padding: 0px; 
+  }
+
+  .customerpopup .input-group input{
+    width: 100px !important;
+  }
+  .customerpopup .discdeatails{
+    margin: 20px 0;
+  }
+
+  .customerpopup .discdeatails{
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .customerpopup .fields{
+    display: flex;
+  }
+ 
+ 
+  
+  .customerpopup select{
+    width: 200px !important;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #aaa8a8 !important;
+  }
+  .customerpopup input{
+    height: 30px;
+    width: 200px;
+  }
+  .customerpopup .input-group,textarea{
+    height: 30px;
+    width: 200px !important;
+  }
+ 
+  .right,.left{
+    margin:0 30px !important;
+  }
+ 
+  
+  .customerpopup .right div{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .customerpopup .left div{
+    display: flex;
+  }
+  .customerpopup .right div label{
+    width: 120px;
+    text-align: left;
+    font-size: 13px !important;
+  }
+  .customerpopup .left div label,.lastdata label{
+    width: 100px;
+    font-size: 13px !important;
+  }
+  .customerpopup .f1 p{
+    width: 120px;
+  }
+  .customerpopup .subfield{
+    margin: 10px 0;
+  }
+ .savesec {
+  margin: 0px 15px;
+ }
+  
+  .customerpopup label span{
+    color: red;
+    
+  }
+ 
+  .customerpopup .left .f1{
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    border: 1px solid #e2dfdf;
+    border-radius: 6px;
+    padding: 0px 10px;
+    margin: 5px;
+  }
+  .customerpopup .redline{
+    font-size: 14px;
+    font-weight: bold;
+    color: orangered;
+    text-align: left !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding-top: 5px;
+  }
+  .customerpopup .lastdata div{
+    margin: 4px 0;
+  }
+ 
+  .input-group{
+    display: flex;
+  }
+  
+
+  form .form-check-input{
+    border-radius: 100% !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 5px !important;
+  }
+
+/*-----customer-popup----*/
+
+
+
+  
+/*------media-queries----------*/
+
+
+
+@media(max-width:1030px){
+  .fields{
+    flex-direction: column;
+  }
+  .right,.left{
+    margin:0 0px;
+    width: 95%;
+  }
+ .f1{
+  margin: 10px 0 !important;
+ }
+ .innerdiv{
+  flex-direction: column;
+ }
+ .right select{
+  width: 100% !important;
+ }
+  .fields label{
+    width: 100% !important;
+  }
+  .subfield .input-group,select,textarea{
+    width: 100% !important;
+  }
+  .subfield input{
+    width: 100% !important;
+  }
+
+ 
+}
+
+
+
+@media(max-width:768px){
+  .table thead{
+      display: none;
+  }
+  .table, .table tbody,.table tr,.table td{
+      display: block;
+      width: 100%;
+  }
+ 
+  .table tbody tr td{
+      text-align: right;
+      padding: 10px 2% 10px 30%;
+      position: relative;
+      width: 100% !important;
+  }
+ .left .subfield{
+  flex-direction: column;
+  padding: 0 20px;
+ }
+ .right .subfield{
+  flex-direction: column;
+  padding: 0 2px;
+ }
+ .subfield{
+  text-align: center;
+ }
+ .chechboxes{
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 !important;
+ }
+ .chechboxes div{
+  width: 80px !important;
+ }
+ .f1{
+  justify-content: center !important;
+ }
+ .customerpopup .left .f1{
+  border-radius: 8px;
+  padding: 10px 10px 0 10px;
+ }
+ .chechboxes .form-check-input{
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 100% !important;
+ }
+ 
+  .table td:before{
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 15px;
+      font-weight: 600;
+      text-align: left;
+      
+  }
+  .form-switch input{
+    margin-left: auto !important;
+  }
+}
+
+
+@media(max-width:768px){
+  .form-switch{
+    justify-content: flex-end !important;
+   }
+ 
+}
+
+
+.circlefrmchk{
+  font-size: 14px !important;
+}
+.f1 p{
+  font-size: 14px;
+}
+@media(max-width:999px){
+ 
+  .circlefrmchk{
+    font-size: 12px;
+    position: relative;
+    right: 40px;
+    top: -8px;
+  }
+  .circlefrmchk input{
+    width: 15px !important;
+    height: 15px !important;
+    position: relative;
+    top: 5px;
+  }
+}
+
+
+.subredhead{
+  color: red;
+  margin: 10px 0 0 0;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+
+.search-bar{
+  margin: 0px 0px 0px 20px;
+}
+.search-bar input{
+  width: 500px;
+}
+
+
+@media(max-width:1000px){
+  .search-bar{
+    margin: 20px 0px;
+    width: 100%;
+  }
+  .search-bar input{
+    width: 100%;
+  }
+}
+
+
+
+/*----alldis--------*/
+
+@media(max-width:769px){
+
+  .alldis{
+    margin:  0 !important;
+  }
+  .alldis h3{
+    font-size: 15px;
+  }
+  .alldis .mt-3{
+    font-size: 13px;
+  }
+  .alldis input{
+    width: 40px !important;margin-right: 5px;height:20px !important;border-radius: 20px !important;
+  }
+}
+
+@media(max-width:474px){
+  .alldis{
+    flex-direction: column;
+    margin: 0 0 20px 0 !important;
+  }
+  .alldis h3{
+    font-size: 18px;
+  }
+  .alldis .mt-3{
+    font-size: 16px;
+  }
+
+  .alldis input{
+    width: 40px !important;margin-right: 5px;height:20px !important;border-radius: 20px !important;
+    position: relative !important;
+    right: 10px !important;
+  }
+}
+
+@media(max-width:999px){
+  .statusarea{
+    flex-direction: row !important;
+    padding: 20px  !important;
+  }
+  .statusarea label{
+    width: fit-content !important;
+    margin-top: 5px;
+  }
+
+}
+
+
+
+
+/*------search-bar-new-code----------*/
+
+
+
+
+.alldis{
+  text-align: left !important;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  margin: 20px auto 0 auto;
+}
+.alldis h3{
+  color: #408DFB;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 20px 0 20px 0px;
+}
+
+
+
+@media(max-width:999px){
+  .newpart{
+    flex-direction: column !important;
+  }
+  .search-bar input{
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 10px 0 0 !important;
+  }
+  h3{
+    width: 100% !important;
+    margin: 20px 0 0px 0 !important;
+  }
+  .search-bar{
+    margin-top: 20px;
+    margin-bottom: 10px !important;
+  }
+  
+.alldis{
+  text-align: center !important;
+  justify-content: flex-start !important;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px auto 0 auto;
+  padding-bottom: 10px;
+}
+
+
+}

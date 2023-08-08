@@ -1,0 +1,116 @@
+.logo{
+    padding: 0;
+    width: 150px;
+    height: 70px;
+    border-radius: 5px;
+}
+
+.login-page{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ 
+}
+.login{
+    background: white  !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    text-align: center;
+    margin: 0;
+}
+.left img,.left,.right{
+    width: 450px;
+    height: 450px;
+}
+.right{
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    margin: auto auto auto 20px; 
+    padding: 40px 0 0 0;
+    
+}
+.sign{
+    text-align: left !important;
+    
+}
+.sign,.inputfield{
+    margin: 0 20px;
+}
+.signin{
+    margin-top: 20px;
+}
+label{
+    color: white !important;
+}
+input{
+    color: black !important;
+}
+.inputfield{
+    width: 90% !important;
+}
+.continuebtn{
+  width: 200px;
+  margin-top: 20px;
+}
+
+.lastsec{
+    margin: 0 20px;
+}
+.circlegif1{
+    position: absolute;
+    bottom:10%;
+    right: 2%;
+    left: auto;
+}
+
+@media(max-width:999px){
+    .login{
+        align-items: center !important;
+        justify-content: center !important;
+        margin: auto !important;
+        text-align: center !important;
+    }
+   
+    .left img,.left,.right{
+        width: 300px;
+        height: 300px;
+        margin: auto;
+    }
+    .circlegif1{
+        position: absolute;
+        bottom:50%;
+        right: 2%;
+        left: auto;
+    }
+   
+}
+
+@media(max-width:767px){
+    .login{
+        flex-direction: column-reverse;
+    }
+    .left img,.left,.right{
+        width: 300px;
+        height: 300px;
+        margin: auto;
+    }
+    .left{
+        margin: 100px auto;
+    }
+    
+.login-page{
+    margin-top: 50px !important;
+}
+.circlegif1{
+    position: absolute;
+    bottom:10%;
+    right: 2%;
+    left: auto;
+    display: none;
+}
+}

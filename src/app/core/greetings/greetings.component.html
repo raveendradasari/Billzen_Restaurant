@@ -1,0 +1,162 @@
+<form [formGroup]="greetingForm" (ngSubmit)="greetingPost()">
+
+  <p style="color: red;font-weight: bold;margin: 0;margin-top: 10px;font-size: 13px;">Greeting Master</p>
+  <!-----form-fileds------>
+
+  <div class="box">
+
+    <div class="right">
+
+
+      <!-- <div class="form subfield">
+                <label for="inlineFormSelectPref" >Greeting ID<span style="color: red;">*</span></label>
+                <input  type="text" id="form9Example1" class="form-control" />
+              </div> -->
+
+      <div class="form subfield">
+        <label for="inlineFormSelectPref">Greeting Message<span style="color: red;">*</span></label>
+        <input type="text" id="form9Example1" formControlName="greeting_message" class="form-control" />
+      </div>
+
+      <div class="form subfield statusarea">
+        <label for="inlineFormSelectPref"> Status <span>*</span></label>
+        <div class="form-check form-switch">
+          <input class="form-check-input" formControlName="isactive" type="checkbox" id="flexSwitchCheckChecked" checked
+            style="width: 50px !important;">
+        </div>
+
+      </div>
+
+      <div class="form subfield">
+        <label for="inlineFormSelectPref"> From Date <span style="color: red;">*</span></label>
+        <input type="date" id="form9Example1" formControlName="shift_start_date" class="form-control">
+      </div>
+
+      <div class="form subfield">
+        <label for="inlineFormSelectPref"> To Date <span style="color: red;">*</span></label>
+        <input type="date" id="form9Example1" formControlName="shift_end_date" class="form-control" />
+      </div>
+
+
+      <div class="form subfield">
+        <label for="inlineFormSelectPref"> From Time <span style="color: red;">*</span></label>
+        <input type="time" id="form9Example1" formControlName="shift_start_time" class="form-control" />
+      </div>
+
+      <div class="form subfield">
+        <label for="inlineFormSelectPref"> To Time <span style="color: red;">*</span></label>
+        <input type="time" id="form9Example1" formControlName="shift_end_time" class="form-control" />
+      </div>
+
+
+      <!-- check -->
+
+      <div formArrayName="TransactionGreeting">
+        <div *ngFor="let filter of TransactionGreeting.controls; let i=index">
+          <div [formGroupName]="i">
+
+            <div class="form subfield">
+              <label for="inlineFormSelectPref">Transaction Type<span style="color: red;">*</span></label>
+              <select name="" id="form9Example1" formControlName="transactionId" class="form-control">
+                <option value="">select</option>
+                <option *ngFor="let tra of transaction" value="{{tra.transactionId}}">{{tra.transactionName}}</option>
+              </select>
+            </div>
+
+            <div class="form subfield statusarea">
+              <label for="inlineFormSelectPref"> Transaction Status <span>*</span></label>
+              <div class="form-check form-switch">
+                <input class="form-check-input" formControlName="isactive" type="checkbox" id="flexSwitchCheckChecked"
+                  checked style="width: 50px !important;">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- checkend -->
+
+    </div>
+
+
+
+
+    <!-- <div class="checkboxes">
+            <div class="ckbx1">
+                <input type="checkbox" name="" id="">Take Away
+            </div>
+            <div class="ckbx1">
+                <input type="checkbox" name="" id="">Dine In
+            </div>
+            <div class="ckbx1">
+                <input type="checkbox" name="" id="">All
+            </div>
+            <div class="ckbx1">
+                <input type="checkbox" name="" id="">Home Delivery
+            </div>
+          </div> -->
+
+
+
+    <div class="modal-footer savesec">
+      <button type="reset" class="btn btn-secondary">Clear</button>
+      <button type="submit" class="btn btn-success">Save</button>
+    </div>
+  </div>
+
+  <!-----form-fileds------>
+
+
+</form>
+
+<div class="search-bar">
+  <form class="d-flex">
+    <input class="form-control me-2" 
+    type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+    <button class="btn btn-success" type="submit">Search</button>
+  </form>
+</div>
+
+<table class="table table-part">
+  <thead>
+    <tr>
+      <th scope="col">Sr No</th>
+
+      <th scope="col">Greeting Message</th>
+      <th scope="col"> From Date</th>
+      <th scope="col"> To Date </th>
+      <th scope="col">From Time</th>
+      <th scope="col"> To Time </th>
+      <!-- <th scope="col">Status</th> -->
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let gree of greeting |search:searchText;let i=index;">
+      <td data-label="Greeting Message">{{i+1}}</td>
+
+      <td data-label="Greeting Message">{{gree.greeting_message}}</td>
+      <td data-label="From Date">{{gree.shift_start_date}}</td>
+      <td data-label="To Date">{{gree.shift_end_date}}e</td>
+      <td data-label="From Time">{{gree.shift_start_time}}</td>
+      <td data-label="To Time">{{gree.shift_end_time}}</td>
+      <!-- <td data-label="Status">Active/InActive</td> -->
+
+
+      <td data-label="Action">
+        <span class="form-check form-switch" style="display: flex !important;">
+          <div>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked
+              style="width: 32px !important;height: 15px !important;">
+          </div>
+          <div><i class="fa fa-pencil" (click)="updateShift(gree)" style="color: red;margin: 0 10px;"></i></div>
+        </span>
+      </td>
+
+    </tr>
+
+  </tbody>
+</table>

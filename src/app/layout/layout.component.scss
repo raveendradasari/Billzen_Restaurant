@@ -1,0 +1,46 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .mat-drawer {
+   width: fit-content !important;
+   padding: 0 !important;
+   margin: 0 !important;
+   overflow: hidden !important;
+   background: #21263C !important;
+  }
+  .mat-drawer-container {
+    height: 100%;
+
+
+  }
+  
+ 
+  .mat-drawer-content{
+    background-color: #fff;
+    padding-left: 10% !important;
+    
+  }
+  ::ng-deep .top-nav{
+    position: sticky ;
+    z-index: 999;
+  
+  }
+
+  @media(max-width:1024px){
+    
+    .mat-drawer-content{
+      padding-left: 12% !important;
+      
+    }
+    }
+
+ @media(max-width:999px){
+    
+  .mat-drawer-content{
+    padding-left: 0% !important;
+    
+  }
+  }

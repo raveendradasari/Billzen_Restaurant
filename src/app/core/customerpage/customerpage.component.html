@@ -1,0 +1,269 @@
+
+<form [formGroup]="customerForm" (ngSubmit)="customerPost()">
+
+  <p class="subredhead">Customer Master</p>
+
+
+  <div class="box">
+       
+    <!-----form-fileds------>
+    
+    
+    <div class="fields d-flex customerpopup">
+    
+      <div class="right">
+      
+          <div class="form subfield">
+              <label class="form-label" for="form12">Full Name <span>*</span></label>
+              <input type="text" id="form12" class="form-control" formControlName="customer_name"/>
+              <input type="hidden" formControlName="customerId">
+          </div>
+          
+          
+        
+          
+      
+          <div class="subfield">
+              <label for="inlineFormSelectPref" >State <span>*</span></label>
+              <select class="select" formControlName="state">
+                <option value="0">Andhra Prades</option>
+                <option value="1">Andhra Pradesh</option>
+                <option value="2">Madhya Pradesh</option>
+                <option value="3">Uttar Pradesh</option>
+                <option value="4">Telangana</option>
+                <option value="5">Odisaa</option>
+                <option value="6">Bhihar</option>
+              </select>
+          </div>
+      
+          <div class="form subfield">
+              <label class="form-label" for="form12">PIN Code </label>
+              <input type="text" id="form12" formControlName="pincode" class="form-control" />
+          </div>
+         
+      
+          <div class="form subfield">
+              <label class="form-label" for="form12">Country </label>
+              <input type="text" formControlName="country" id="form12" class="form-control" placeholder="India">
+          </div>
+      
+          <div class="form subfield">
+              <label class="form-label" for="form12">Phone No </label>
+              <input type="number" formControlName="Mobilenumber" id="form12" class="form-control" />
+          </div>
+      
+          <div class="form subfield">
+              <label class="form-label" for="textAreaExample">Billing Address</label>
+              <textarea class="form-control" formControlName="billing_address" id="textAreaExample" rows="2"></textarea>
+          </div>
+          
+          
+       </div>
+      
+      
+      <div class="left">
+      
+      
+      <div class="f1">
+      
+         <p class="redline">Account Details</p>
+      
+         <div class="d-felx" style="align-items: center;">
+         <div> <p class="mt-1">Type</p></div>
+          <div class="form-check circlefrmchk">
+              <input class="form-check-input" formControlName="account_type" type="radio" value="Debit" name="account_type" id="flexRadioDefault1" checked>Debit
+          </div>
+      
+         
+          <div class="form-check circlefrmchk">
+              <input class="form-check-input" formControlName="account_type" type="radio" value="Credit" name="account_type" id="flexRadioDefault2" > Credit
+          </div>
+         </div>
+      
+         <div class="subfield" style="align-items: center;">
+          <label for="inlineFormSelectPref" style="width: fit-content;margin-right: 10px;">Opening Balance</label>
+          <div class="input-group">
+            <div class="input-group-text" style="background: #21263C;color: white;height: 30px;">₹</div>
+            <input type="text" formControlName="opening_balance" class="form-control currencyinput" id="inlineFormInputGroupUsername">
+          </div>
+         </div>
+      
+      </div>
+      
+      
+      <div class="d-flex innerdiv">
+      
+      <div class="f1">
+      
+          <p class="redline">Other Details</p>
+       
+          <div class="d-felx" style="align-items: center;">
+          <div> <p class="mt-1">Credit Allowed</p></div>
+           <div class="form-check circlefrmchk">
+               <input class="form-check-input" formControlName="credit_allowed" 
+               type="radio" name="credit_allowed" value="Yes" id="flexRadioDefault1" >Yes
+           </div>
+       
+          
+           <div class="form-check circlefrmchk">
+               <input class="form-check-input" formControlName="credit_allowed" 
+               type="radio" name="credit_allowed" value="No" id="flexRadioDefault2" checked > No
+           </div>
+          </div>
+       
+          <div class="subfield" style="align-items: center;">
+           <label for="inlineFormSelectPref">Credit Limit</label>
+           <div class="input-group">
+             <div class="input-group-text" style="background: #21263C;color: white;height: 30px;">₹</div>
+             <input type="text" formControlName="credit_limit" class="form-control currencyinput"
+              id="inlineFormInputGroupUsername">
+           </div>
+          </div>
+       
+       </div>
+      
+      
+       <div class="lastdata f1" style="flex-direction: column;">
+         <p class="redline"> Tax Details</p>
+    
+          <div class="form subfield" style="align-items: center;">
+              <label class="form-label" for="form12">PAN NO </label>
+              <input type="number" formControlName="pan_no" id="form12" class="form-control" />
+          </div>
+      
+          <div class="form subfield" style="align-items: center;">
+              <label class="form-label" for="form12">GSTIN</label>
+              <input type="text" formControlName="Gstin" id="form12" class="form-control" />
+          </div>
+
+
+
+          <div class="form subfield statusarea">
+            <label for="inlineFormSelectPref" > Status <span>*</span></label>
+    
+            <span>
+              <div class="form-check form-switch statusfrmswitch">
+                <input class="form-check-input" formControlName="isactive" type="checkbox" id="flexSwitchCheckChecked" checked
+                  style="width: 50px !important;border-radius: 20px !important;">
+              </div>
+            </span>
+    
+          </div>
+
+
+       </div>
+
+      </div>
+      
+          
+         
+      
+      </div>
+      
+      </div>
+      
+      
+      <!-----form-fileds------>
+
+      <div class="modal-footer savesec">
+        <button type="reset" class="btn btn-secondary"  data-bs-dismiss="modal">Clear</button>
+        <button type="submit" class="btn btn-sucess text-white" style="background: green !important;">Save</button>
+      </div>
+    
+    
+          </div>
+         
+
+</form>
+
+
+
+
+
+
+
+
+<div *ngIf="isCustomer===false" style="color: rgb(252, 249, 249);text-align: center;margin: 80px 300px;">
+  <img src="/assets/permission.gif" alt="" width="50%"><br>
+  <h5 style="background-color: rgb(31, 31, 70);">Your not Authorised</h5>
+  </div>
+
+<div class="customer-page" *ngIf="isCustomer===true">
+
+  <div class="alldis">
+
+    <div style="display: flex;align-items: center !important;" class="newpart">  
+      <h3>ALL CUSTOMER MASTERS</h3>
+
+      <div class="search-bar">
+        <form class="d-flex">
+          <input class="form-control me-2" 
+          type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
+    
+    
+    
+    </div>
+     <div class="form-check form-switch mainswitch" style="align-items: center !important;display: flex;">
+       <input class="form-check-input" type="checkbox" (click)="filtredIsActive()" [(ngModel)]="isChecked"
+         id="flexSwitchCheckChecked" checked style="width: 60px !important;margin-right: 5px;height:30px;border-radius: 30px;">
+         <!-- <p class="mt-2">Active/InActive</p> -->
+     </div>
+   
+   </div>
+  
+  
+  <table class="table table-part">
+      <thead>
+        <tr>
+          <th scope="col">S.NO</th>
+          <th scope="col"> Full Name</th>
+          <th scope="col">State</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Opening Balance</th>
+          <th scope="col">Credit Limit</th>
+          <th scope="col">PAN NO</th>
+          <th scope="col">GSTIN</th>
+          <th scope="col">ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cust of customer |search:searchText;let i=index;">
+          <td data-label="S.NO">{{1+i}}</td>
+          <td data-label="customer Name">{{cust.customer_name}}</td>
+          <td data-label="customer State">{{cust.state}}</td>
+          <td data-label="Mobile Number">{{cust.Mobilenumber}}</td>
+          <td data-label="Opening Bal">{{cust.opening_balance}}</td>
+          <td data-label="Credit Limit">{{cust.credit_limit}}</td>
+          <td data-label="PAN No">{{cust.pan_no}}</td>
+          <td data-label="GSTIN">{{cust.Gstin}}</td>
+        
+
+        
+
+
+         <td data-label="Action">
+          <span class="form-check form-switch" style="display: flex !important;">
+              <div>
+                <input class="form-check-input" (click)="StatusUpdate(cust)"  type="checkbox" id="flexSwitchCheckChecked" [checked]="cust.isactive"
+                 style="width: 32px !important;height: 15px !important;">
+              </div>
+               <div><i class="fa fa-pencil" (click)="patchCustomer(cust)"  style="color: red;margin: 0 10px;" ></i></div>
+            </span>
+       </td>
+
+
+
+
+         
+        </tr>
+     
+      </tbody>
+  </table>
+  
+  
+ 
+  
+</div>

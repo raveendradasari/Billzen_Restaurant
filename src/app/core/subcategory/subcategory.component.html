@@ -1,0 +1,137 @@
+<div *ngIf="isSubcategory===false" style="color: rgb(252, 249, 249);text-align: center;margin: 80px 300px;">
+  <img src="/assets/permission.gif" alt="" width="50%"><br>
+  <h5 style="background-color: #21263C;padding: 10px;text-transform: capitalize;">Oops!!! Your are not Authorised</h5>
+</div>
+
+
+<div class=" table-part" *ngIf="isSubcategory===true">
+
+
+  <form [formGroup]="subcatForm" (ngSubmit)="subcategoryPost()">
+
+  <p class="subredhead">SubCategory Master</p>
+
+
+    <!----sub-category------>
+
+    <div class="box">
+
+      <!-----form-fileds------>
+
+      <div class="right d-flex">
+
+
+        <div class="form subfield">
+          <label for="inlineFormSelectPref">Sub Category Name <span>*</span></label>
+          <input type="text" id="form9Example1" class="form-control" formControlName="subcategoryName">
+          <input type="hidden" formControlName="subcategoryId">
+        </div>
+
+
+        <div class="form subfield">
+          <label for="inlineFormSelectPref">Category</label>
+          <select class="select" formControlName="categoryId">
+            <option value="">--Select--</option>
+            <option *ngFor="let cat of categoryall" value="{{cat.categoryId}}">{{cat.categoryName}}</option>
+          </select>
+        </div>
+
+
+         
+      <div class="form subfield statusarea">
+        <label for="inlineFormSelectPref" > Status <span>*</span></label>
+
+        <div class="form-check form-switch">
+          <input class="form-check-input" formControlName="isActive" type="checkbox" id="flexSwitchCheckChecked" checked
+            style="width: 50px !important;">
+        </div>
+
+      </div>
+
+
+
+      </div>
+
+
+      <div class="modal-footer savesec">
+        <button type="reset" class="btn btn-secondary" (click)="resetcatForm()" data-bs-dismiss="modal">Clear</button>
+        <button type="submit" class="btn btn-sucess" style="background: green !important;">Save</button>
+      </div>
+
+      <!-----form-fileds------>
+
+    </div>
+
+
+
+    <!----sub-category------>
+
+  </form>
+
+
+
+  <div class="alldis">
+
+    <div style="display: flex;align-items: center !important;" class="newpart"> 
+  
+      <h3>ALL SUBCATEGORY MASTERS</h3>
+
+  <div class="search-bar">
+    <form class="d-flex">
+      <input class="form-control me-2" 
+      type="search" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchText" placeholder="Search" aria-label="Search">
+      <button class="btn btn-success" type="submit">Search</button>
+    </form>
+  </div>
+    
+    </div>
+
+
+     <div class="form-check form-switch" style="align-items: center !important;display: flex;">
+       <input class="form-check-input" type="checkbox" (click)="filtredIsActive()" [(ngModel)]="isChecked"
+         id="flexSwitchCheckChecked" checked style="width: 60px !important;margin-right: 5px;height:30px;border-radius: 30px;">
+         <!-- <p class="mt-3">Active/InActive</p> -->
+     </div>
+   
+   </div>
+
+
+  <table class="table table-part">
+    <thead>
+      <tr>
+
+        <th scope="col">S.NO</th>
+        <th scope="col">Sub Category Name</th>
+        <!-- <th scope="col">Category Name</th>  -->
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr *ngFor="let subcat of subcategory |search:searchText;let i=index;">
+        <td data-label="ID">{{1+i}}</td>
+
+        <td data-label="subcategory">{{subcat.subcategoryName}}</td>
+        <!-- <td data-label="categoryName">{{subcat.categoryName}}</td> -->
+
+
+        
+        <td data-label="Action">
+          <span class="form-check form-switch" style="display: flex !important;">
+              <div>
+                <input class="form-check-input" (click)="StatusUpdate(subcat)" type="checkbox" id="flexSwitchCheckChecked"
+                [checked]="subcat.isActive"  style="width: 32px !important;height: 15px !important;">
+              </div>
+               <div><i class="fa fa-pencil" (click)="patchSubCat(subcat)"  style="color: red;margin: 0 10px;" ></i></div>
+            </span>
+       </td>
+
+
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
