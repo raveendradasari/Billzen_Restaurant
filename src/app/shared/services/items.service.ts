@@ -106,4 +106,21 @@ export class ItemsService {
     const endPoint = `Item?itemId=${{ id }}`;
     return this.http.get(this.serverEndpoint + endPoint);
   }
+
+  
+   // printer
+   getPrinter() {
+    const endPoint = `Printer`;
+    return this.http.get(this.serverEndpoint + endPoint);
+  }
+  deleteprinter(id:number){
+    return this.http.delete(`this.serverEndpoint/${id}`)
+  }
+
+
+
+
+
+
+  
 }

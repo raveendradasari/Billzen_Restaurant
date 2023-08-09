@@ -17,6 +17,12 @@
 .firstsec{
     width: 50% !important;
 }
+.firstsec .lists,.sec2 .lists,.printers-part{
+    margin-top: 5px !important;
+}
+.innerdiv{
+    padding-bottom: 1.5px !important;
+} 
 .sec2{
     width: 100% !important;
 }
@@ -24,26 +30,24 @@
     align-items: center;
     width: fit-content !important;
 }
-.sec3 .lists{
-    margin-top: 10px !important;
-}
+
+
 .sec3 .fa-solid{
     margin-left: auto !important;
     color: red;
-    font-size: 14px;
+    font-size: 16px;
 }
 
-.lists{
-    margin-top: 10px;
-    position: relative;
-}
 
+.sec3 .d-flex{
+    padding: 0 10px;
+}
 
 .lists p span{
     border: 1px solid grey;
     border-left: 0;
     border-top: 0;
-    padding: 7px 10px;
+    padding: 6px 10px;
     position: relative;
     right: 10px;
 }
@@ -69,6 +73,17 @@
     height: 30px;
     margin: 0 10px;
 }
+.sec3 .lists span{
+    border: 0 !important;
+    padding: 0 5px !important;
+}
+.sec3{
+    font-size: 15px;
+}
+
+.fa-trash{
+    cursor: pointer;
+}
 .save-btn{
     background: #ff3d91;
     color: white;
@@ -77,24 +92,76 @@
 }
 
 
+
 .modal-footer{
     position: absolute;
     bottom: 80px;
     right: 60px;
 }
 
-.selectall{
+.subdiv{
     display: flex;
-    align-items: center;
+    align-items: center !important;
+    justify-content: flex-start;
+    margin: 0 10px;
 }
-.selectall p{
-    margin: 0 0 0 50px;
+.subdiv span{
+    margin-left: 50px;
+    font-size: 15px;
 }
-.selectall input{
-    margin-right: 5px;
+.subdiv span input{
+    position: relative;
+    top: 1px;
+}
+.sec1{
+    border: 1px solid grey;
+    padding-top: 10px;
+}
+.firstsec{
+    border-right: 0 !important;
+}
+.sec2,.sec3{
+    border-left: 0 !important;
 }
 
 
+// @media(max-width:9992px){
+//     .threesections{
+//         flex-wrap: wrap;
+//         padding: 0 20px;
+//     }
+//     .threesections .sec1{
+//         width: 100% !important;
+//         margin: 10px 0;
+//     }
+//     .tarnsaction-part,.subhead{
+//         padding: 0 20px;
+//     }
+//     .sec3 .d-flex{
+//         margin: 10px 0;
+//     }
+//     .modal-footer{
+//         position: relative;
+//         bottom: 0px;
+//         right: 0px;
+//         top: 0px;
+//     }
+// }
+
+// @media(max-width: 768px){
+//     .threesections{
+//         flex-wrap: wrap;
+//         padding: 0 0px;
+//     }
+//     .threesections .sec1{
+//         width: 100% !important;
+//         margin: 10px 0;
+//     }
+//     .tarnsaction-part,.subhead{
+//         padding: 0 0px;
+//     }
+   
+// }
 
 
 
