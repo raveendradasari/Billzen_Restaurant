@@ -11,7 +11,7 @@ export class SettingsService {
   constructor(private http: HttpClient) { }
 
   getUserPermission(id:number) {
-    const endPoint = `AcessPermissions?role_id=${id}`
+    const endPoint = `AcessPermissions?user_id=${id}`
     return this.http.get(this.serverEndpoint + endPoint);
   }
   getAllUser() {
@@ -25,5 +25,9 @@ export class SettingsService {
   getAccess(){
     const endPoint=`AcesspermissionsByAcessId?acess_Id=0`;
     return this.http.get(this.serverEndpoint+endPoint);
+  }
+  postAccessLevels(data:any){
+    let endPoint=`AcessPermissions`;
+   return this.http.post(this.serverEndpoint+endPoint, data);
   }
 }
